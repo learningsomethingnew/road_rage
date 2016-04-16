@@ -3,7 +3,7 @@ from fps.fps import start_fps
 class Main:
     def __init__(self):
         self.main_loop()
-        self.one_km_road = []
+
 
     def main_loop(self):
         m_loop = True
