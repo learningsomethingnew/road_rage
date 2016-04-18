@@ -5,13 +5,16 @@ Create a simulation of traffic on a road and find the optimal speed limit for th
 ##Challenge
 1 kilometer section of road being built and we do not know what the speed limit needs to be. Simulate 1 kilometer of road to find the road speed. The optimal speed limit is one standard deviation above the mean speed.
 
+##How to Run
+Open and run Simulation.py in py3.
+
 ##Assumptions
  - **Drivers**
 	 - **Default Driver**
 		 - Wants to go up to 120 km/hr.
 		 - Want at least a number of meters equal to their speed in meters/second between them and the next car.
 		 - Will accelerate 2m/s up to desired speed as long as they have room
-		 - If a driver would hit another car by continuing, the stop
+		    - If a driver would hit another car by continuing, they stop
 		 - Will randomly (10% chance each second) slow by 2 m/s. 
 	 - **3 types of drivers**:
 		 - *Normal*
@@ -52,3 +55,7 @@ Create a simulation of traffic on a road and find the optimal speed limit for th
                  - Kilometer 7: straight.
 		 - **Road Population**
 			 - 30 cars per kilo evenly spaced
+
+
+1000 unit road = 1 km
+1 m/s per update

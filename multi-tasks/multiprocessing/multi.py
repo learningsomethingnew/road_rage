@@ -3,15 +3,15 @@ import logging
 import sys
 import time
 from random import randint
+from simulation import Simulation
 
 class Worker(multiprocessing.Process):
+    def __init__(self, sim_num):
+        self.sim_num = sim_num
 
     def run(self):
         name = multiprocessing.current_process().name
-        print('Doing some work')
-        print("{} Starting".format(name))
-        print('Worker:', )
-        time.sleep(randint(1,5))
+        Simulation(self.sim_num)
         sys.stdout.flush()
         print("{} Exiting".format(name))
 
@@ -20,7 +20,7 @@ if __name__ == '__main__':
     multiprocessing.log_to_stderr(logging.DEBUG)
     print(multiprocessing.cpu_count())
     for i in range(8):
-        p = Worker()
+        p = Worker(i)
         jobs.append(p)
         p.start()
     for j in jobs:

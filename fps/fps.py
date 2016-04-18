@@ -12,7 +12,7 @@ def fps_controller(start, ticks):
         if elapsed >= 1:
             start = time.time()
             ticks += 1
-            print('1 sec elapsed, update! {}'.format(ticks))
+            #print('1 sec elapsed, update! {}'.format(ticks))
             return True
 
 
