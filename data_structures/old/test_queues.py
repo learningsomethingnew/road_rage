@@ -21,7 +21,7 @@ def test_clear_queue():
 def test_get_left():
     q = Queue(10, [1, 2, 3, 4])
     a_list = [1, 2, 3, 4]
-    assert a_list[0] == q.get_left()
+    assert a_list[0] == q.pop()
 
 
 def test_append_right():

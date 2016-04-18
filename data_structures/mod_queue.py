@@ -3,10 +3,11 @@ from collections import deque
 from data_structures.custom_exceptions import *
 
 
-class Queue():
+class ModQueue:
     def __init__(self, maxsize=0, a_list=[]):
         self.a_queue = deque(maxlen=maxsize)
-        self.a_queue.extend(a_list)
+        if a_list != []:
+            self.a_queue.extend(a_list)
 
     """Returns contents of queue as a list"""
     def get_queue(self):
@@ -21,11 +22,11 @@ class Queue():
         self.a_queue.clear()
 
     """Returns int of len of queue"""
-    def get_queue_len(self):
+    def get_len_queue(self):
         return len(self.a_queue)
 
     """Returns and removes index[0] from queue"""
-    def get_left(self):
+    def pop(self):
         if len(self.a_queue) > 0:
             return self.a_queue.popleft()
         else:
@@ -41,6 +42,10 @@ class Queue():
     """Returns left most value but does not remove"""
     def peek_left(self):
         return self.a_queue[0]
+
+    def peek_right(self):
+        temp = len(self.a_queue)
+        return self.a_queue[temp-1]
 
     """Returns int. Counts the number of deque elements equal to x"""
     def get_num_items_in_front(self, a_value):
@@ -59,12 +64,17 @@ class Queue():
         return self.a_queue.maxlen
 
 if __name__ == '__main__':
-    f = Queue(8, [1,2,3,4])
+    f = ModQueue(8, [1,2,3,4])
     print(f.get_queue())
     #Test for failure
-    print(f.append_right(5))
+    f.append_right(5)
     print(f.get_max_size())
+    print(f.pop())
+    f.append_right(f.pop())
+    print(f.get_queue())
     f.append_list([6,7,8])
+    print(f.get_queue())
+    print(f.peek_right())
     # fails the test
     # f.append_list([6, 7, 8])
 
